@@ -1,0 +1,11 @@
+name: Legions
+version: '${version}'
+main: be.raft.legions.Legions
+api-version: 1.19
+authors: [ Raft ]
+description: A Team Plugin
+website: https://raft.ddns.net/
+commands:
+  legion:
+    description: Legions main command
+    usage: /<command>
