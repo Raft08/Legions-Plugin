@@ -1,5 +1,6 @@
 package be.raft.legions.objects;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class IdentifierObject {
@@ -10,6 +11,9 @@ public class IdentifierObject {
         assert (name != null || uuid != null);
         this.name = name;
         this.uuid = uuid;
+    }
+
+    public IdentifierObject(String name, UUID uuid, LegionObject.SettingsObject settingsObject, LegionObject.DataObject dataObject, ArrayList<Object> objects, ArrayList<Object> objects1, ArrayList<Object> objects2, LegionObject.DiplomacyObject diplomacyObject) {
     }
 
     public String getName() {

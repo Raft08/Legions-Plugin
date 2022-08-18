@@ -91,20 +91,16 @@ public class LegionObject {
     //Classes
     public static class SettingsObject {
         Boolean openForAll;
-
-        @SerializedName("legion_file")
-        String legionFlag;
         @SerializedName("description")
         String legionDescription;
         @SerializedName("default_rank")
         IdentifierObject defaultRank;
 
-        public SettingsObject(Boolean openForAll, String legionDescription, IdentifierObject defaultRank, String legionFlag) {
-            assert (openForAll != null || legionDescription != null || defaultRank != null || legionFlag != null);
+        public SettingsObject(Boolean openForAll, String legionDescription, IdentifierObject defaultRank) {
+            assert (openForAll != null || legionDescription != null || defaultRank != null);
             this.openForAll = openForAll;
             this.legionDescription = legionDescription;
             this.defaultRank = defaultRank;
-            this.legionFlag = legionFlag;
         }
 
         public Boolean getOpenForAll() {
@@ -133,25 +129,22 @@ public class LegionObject {
             assert defaultRank != null;
             this.defaultRank = defaultRank;
         }
-
-        public String getLegionFlag() {
-            return legionFlag;
-        }
-
-        public void setLegionFlag(String legionFlag) {
-            assert legionFlag != null;
-            this.legionFlag = legionFlag;
-        }
     }
     public static class DataObject {
         @SerializedName("tier")
-        int Tier;
-        @SerializedName("amount_players")
-        int amountPlayers;
-        @SerializedName("amount_ranks")
-        int amountRanks;
+        int tier;
 
+        public DataObject(int tier) {
+            this.tier = tier;
+        }
 
+        public int getTier() {
+            return tier;
+        }
+
+        public void setTier(int tier) {
+            this.tier = tier;
+        }
     }
     public static class DiplomacyObject {
         ArrayList<IdentifierObject> allies;

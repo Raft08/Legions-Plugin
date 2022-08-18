@@ -15,16 +15,11 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
-    maven {
-        name = 'Jeff Media Public'
-        url = "https://hub.jeff-media.com/nexus/repository/jeff-media-public/"
-    }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT'
     implementation 'com.google.code.gson:gson:2.9.1'
-    implementation 'com.jeff_media:MorePersistentDataTypes:2.3.1'
 }
 
 def targetJavaVersion = 17

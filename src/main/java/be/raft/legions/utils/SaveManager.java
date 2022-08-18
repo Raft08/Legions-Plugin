@@ -19,13 +19,15 @@ public class SaveManager {
     private static final String legionFileBack =Objects.requireNonNull(Bukkit.getWorld(worldName)).getWorldFolder() + "/legions.json.bak";
 
     public static LegionsObject loadLegions() {
+        //Create legion file
         if (!new File(legionFile).exists()) {
             System.out.println("No legion file save was found! Creating a new one..");
-            LegionsObject legions = new LegionsObject(new ArrayList<>());
+            LegionsObject legions = new LegionsObject(new ArrayList<>(), new ArrayList<>());
             saveLegions(legions);
             System.out.println("Legion save file has been created!");
-            return new LegionsObject(new ArrayList<>());
+            return legions;
         }
+
         System.out.println("Loading legions for " + worldName);
         Gson gson = new Gson();
         try {
@@ -48,7 +50,6 @@ public class SaveManager {
 
     public static void createBackupLegions(LegionsObject legions) {
         writeJson(legions, legionFileBack);
-        System.out.println("Successfully saved legions for " + worldName);
     }
 
     public static void backupLegionFile() {

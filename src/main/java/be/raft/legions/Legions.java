@@ -12,8 +12,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Legions extends JavaPlugin {
     public static LegionsObject legions;
 
+    private static Legions plugin;
+
     @Override
     public void onEnable() {
+
+        plugin = this;
+
         //Start Message
         System.out.println("~------------------~");
         System.out.println("| Legions Enabled! |");
@@ -44,5 +49,9 @@ public final class Legions extends JavaPlugin {
 
         //Save Legions
         SaveManager.saveLegions(legions);
+    }
+
+    public static Legions getPlugin() {
+        return plugin;
     }
 }
