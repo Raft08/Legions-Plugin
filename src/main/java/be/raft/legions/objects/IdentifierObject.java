@@ -8,7 +8,7 @@ public class IdentifierObject {
     UUID uuid;
 
     public IdentifierObject(String name, UUID uuid) {
-        assert (name != null || uuid != null);
+        if (name != null || uuid != null);
         this.name = name;
         this.uuid = uuid;
     }
@@ -27,5 +27,14 @@ public class IdentifierObject {
 
     public UUID getUuid() {
         return uuid;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == null) return false;
+        if (this == o) return true;
+        if (!(o instanceof IdentifierObject other)) return false;
+
+        return this.name.equals(other.name) && this.uuid.equals(other.uuid);
     }
 }

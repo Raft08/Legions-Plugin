@@ -43,23 +43,23 @@ public class SaveManager {
     }
 
     public static void saveLegions(LegionsObject legions) {
-        System.out.println("Saving legions for " + worldName);
+        System.out.println("Saving legions for " + worldName + "...");
         writeJson(legions, legionFile);
         System.out.println("Successfully saved legions for " + worldName);
     }
 
-    public static void createBackupLegions(LegionsObject legions) {
-        writeJson(legions, legionFileBack);
-    }
-
     public static void backupLegionFile() {
-        if (new File(legionFileBack).exists()) new File(legionFileBack).delete();
+        if (backupFileExist()) new File(legionFileBack).delete();
         try {
             Files.copy(new File(legionFile).toPath(), new File(legionFileBack).toPath());
         } catch (IOException e) {
             System.out.println("UNABLE TO CREATE BACKUP FILE :");
             e.printStackTrace();
         }
+    }
+
+    public static Boolean backupFileExist() {
+        return new File(legionFileBack).exists();
     }
 
     private static void writeJson(LegionsObject legions, String file) {

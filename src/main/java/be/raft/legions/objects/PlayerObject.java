@@ -13,6 +13,24 @@ public class PlayerObject {
         this.data = data;
     }
 
+    public IdentifierObject getPlayerID() {
+        return playerID;
+    }
+
+    public void setPlayerID(IdentifierObject playerID) {
+        assert playerID != null;
+        this.playerID = playerID;
+    }
+
+    public PlayerDataObject getData() {
+        return data;
+    }
+
+    public void setData(PlayerDataObject data) {
+        assert data != null;
+        this.data = data;
+    }
+
     public static class PlayerDataObject {
         @SerializedName("rank")
         IdentifierObject playerRankID;

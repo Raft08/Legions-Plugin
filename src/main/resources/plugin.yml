@@ -1,10 +1,11 @@
-name: Legions
+# most of the properties can be changed in the gradle.properties
+name: '${plugin_name}'
 version: '${version}'
 main: be.raft.legions.Legions
-api-version: 1.19
+api-version: '${api_version}'
 authors: [ Raft ]
-description: A Team Plugin
-website: https://raft.ddns.net/
+description: '${plugin_description}'
+website: '${plugin_website}'
 commands:
   legion:
     description: Legions main command

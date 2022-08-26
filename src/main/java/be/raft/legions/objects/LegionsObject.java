@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class LegionsObject {
+    int save_version = 1;
+    String edit_warning = "PLEASE READ: This file stores all data of the legions! If you do not know what you are doing please leave this file!";
+    String edit_tutorial = "WARNING: Before editing this file stop the server! Tutorial: For Soon";
     ArrayList<LegionObject> legions;
     @SerializedName("blocked_name")
     ArrayList<String> blockedName;

@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'be.raft'
-version = '1.0.0-ALPHA'
+version = project.plugin_version
 
 repositories {
     mavenCentral()
@@ -18,8 +18,11 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT'
-    implementation 'com.google.code.gson:gson:2.9.1'
+    //Spigot
+    compileOnly "org.spigotmc:spigot-api:${project.minecraft_version}-R0.1-SNAPSHOT"
+
+    //Other dependencies
+    implementation "com.google.code.gson:gson:${project.gson_version}"
 }
 
 def targetJavaVersion = 17
@@ -39,11 +42,16 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 processResources {
-    def props = [version: version]
+    def props = [version: version, api_version: api_version, plugin_name: plugin_name,
+                 plugin_description: plugin_description, plugin_website: plugin_website]
+    inputs.property("java_version", targetJavaVersion)
     inputs.properties props
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+    filesMatching('build_plugin.yml') {
+        expand "java_version": targetJavaVersion
     }
 }
 

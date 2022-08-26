@@ -1,56 +1,57 @@
 {
+  "save_version" : 1,
+  "example_warning": "This is an example file! Nothing is actually stored in here and this will not be generated this is only on the repo",
+  "edit_tutorial": "WARNING: Before editing this file stop the server! Tutorial: For Soon",
   "legions": [
     {
       "legion": {
         "name": "Example Legion",
-        "uuid": "4329253d-b011-46c6-a35a-52eaa4be8db5"
+        "uuid": "8c6395d4-62f9-40c8-aa60-e2be7404c924"
       },
       "settings": {
-        "isOpenForAll" : false,
-        "description": "Example Description",
+        "openForAll": false,
+        "description": "Hello I\u0027m an example description!",
         "default_rank": {
           "name": "Recruit",
-          "uuid": "a5599993-7322-44b4-84fd-a51a7998f33d"
+          "uuid": "67d9117c-d7a2-4cbe-85c6-b47baf677dc5"
         }
       },
       "data": {
-        "tier": 1,
-        "amount_players": 1,
-        "amount_ranks": 4
+        "tier": 0
       },
       "ranks": [
         {
           "rank": {
             "name": "Recruit",
-            "uuid": "a5599993-7322-44b4-84fd-a51a7998f33d"
+            "uuid": "67d9117c-d7a2-4cbe-85c6-b47baf677dc5"
           },
           "permissions": {
-            "WorldEditingPerms": {
+            "world_editing_permissions": {
               "canBreakBlocks": false,
               "canPlaceBlocks": false,
               "canCreateBuildings": false,
               "canRemoveBuildings": false
             },
-            "EntityPerms": {
+            "entity_permissions": {
               "canDamagePassive": false,
-              "canDamageHostiles": true,
+              "canDamageHostile": true,
               "canBreedEntities": false
             },
-            "CampEditing": {
+            "camp_editing_permissions": {
               "canCreateCamp": false,
               "canDeleteCamp": false,
               "canChangeCampSettings": false
             },
-            "LegionEditing": {
+            "legion_editing_permissions": {
               "canDeleteLegion": false,
               "canChangeLegionSettings": false
             },
-            "RankEditing": {
+            "rank_editing_permissions": {
               "canCreateRank": false,
               "canDeleteRank": false,
-              "CanEditRank": false
+              "canEditRank": false
             },
-            "Diplomacy": {
+            "diplomacy_permissions": {
               "canEnemyLegion": false,
               "canAllyLegion": false,
               "canStartRaid": false
@@ -60,34 +61,35 @@
         {
           "rank": {
             "name": "Member",
-            "uuid": "4245ec9f-040b-45e4-9a5d-1022156c937b"
+            "uuid": "ffe43011-b7cd-4413-915d-14546af394bc"
           },
           "permissions": {
-            "WorldEditingPerms": {
+            "world_editing_permissions": {
               "canBreakBlocks": true,
               "canPlaceBlocks": true,
               "canCreateBuildings": false,
               "canRemoveBuildings": false
             },
-            "EntityPerms": {
+            "entity_permissions": {
               "canDamagePassive": true,
-              "canDamageHostiles": true,
-              "canBreedMobs": true
+              "canDamageHostile": true,
+              "canBreedEntities": true
             },
-            "CampEditing": {
+            "camp_editing_permissions": {
               "canCreateCamp": false,
               "canDeleteCamp": false,
               "canChangeCampSettings": false
             },
-            "LegionEditing": {
+            "legion_editing_permissions": {
+              "canDeleteLegion": false,
               "canChangeLegionSettings": false
             },
-            "RankEditing": {
+            "rank_editing_permissions": {
               "canCreateRank": false,
               "canDeleteRank": false,
-              "CanEditRank": false
+              "canEditRank": false
             },
-            "Diplomacy": {
+            "diplomacy_permissions": {
               "canEnemyLegion": false,
               "canAllyLegion": false,
               "canStartRaid": false
@@ -97,34 +99,35 @@
         {
           "rank": {
             "name": "Officer",
-            "uuid": "99ad0d14-916c-4add-b9db-370f4ca6b9c6"
+            "uuid": "d189a3c4-d3da-4acc-aa55-432e36de26ae"
           },
           "permissions": {
-            "WorldEditingPerms": {
+            "world_editing_permissions": {
               "canBreakBlocks": true,
               "canPlaceBlocks": true,
               "canCreateBuildings": true,
               "canRemoveBuildings": true
             },
-            "EntityPerms": {
+            "entity_permissions": {
               "canDamagePassive": true,
-              "canDamageHostiles": true,
-              "canBreedMobs": true
+              "canDamageHostile": true,
+              "canBreedEntities": true
             },
-            "CampEditing": {
+            "camp_editing_permissions": {
               "canCreateCamp": false,
               "canDeleteCamp": false,
               "canChangeCampSettings": true
             },
-            "LegionEditing": {
+            "legion_editing_permissions": {
+              "canDeleteLegion": false,
               "canChangeLegionSettings": false
             },
-            "RankEditing": {
+            "rank_editing_permissions": {
               "canCreateRank": true,
               "canDeleteRank": true,
-              "CanEditRank": true
+              "canEditRank": true
             },
-            "Diplomacy": {
+            "diplomacy_permissions": {
               "canEnemyLegion": true,
               "canAllyLegion": true,
               "canStartRaid": true
@@ -134,34 +137,35 @@
         {
           "rank": {
             "name": "Owner",
-            "uuid": "6d96469c-5ecc-431e-9a3d-c4bce611aa07"
+            "uuid": "1286c3b6-1a83-4c2c-a291-cfe334b03988"
           },
           "permissions": {
-            "WorldEditingPerms": {
+            "world_editing_permissions": {
               "canBreakBlocks": true,
               "canPlaceBlocks": true,
               "canCreateBuildings": true,
               "canRemoveBuildings": true
             },
-            "EntityPerms": {
+            "entity_permissions": {
               "canDamagePassive": true,
-              "canDamageHostiles": true,
-              "canBreedMobs": true
+              "canDamageHostile": true,
+              "canBreedEntities": true
             },
-            "CampEditing": {
+            "camp_editing_permissions": {
               "canCreateCamp": true,
               "canDeleteCamp": true,
               "canChangeCampSettings": true
             },
-            "LegionEditing": {
+            "legion_editing_permissions": {
+              "canDeleteLegion": true,
               "canChangeLegionSettings": true
             },
-            "RankEditing": {
+            "rank_editing_permissions": {
               "canCreateRank": true,
               "canDeleteRank": true,
-              "CanEditRank": true
+              "canEditRank": true
             },
-            "Diplomacy": {
+            "diplomacy_permissions": {
               "canEnemyLegion": true,
               "canAllyLegion": true,
               "canStartRaid": true
@@ -190,17 +194,24 @@
       "players": [
         {
           "player": {
-            "name": "exampleplayer",
-            "uuid": "4afdca7f-0fed-456b-9215-b74e6f0a1a15"
+            "name": "RaftDev",
+            "uuid": "37fed4eb-a213-44f8-9fa7-5f7e92e37770"
           },
           "data": {
             "rank": {
               "name": "Owner",
-              "uuid": "6d96469c-5ecc-431e-9a3d-c4bce611aa07"
+              "uuid": "1286c3b6-1a83-4c2c-a291-cfe334b03988"
             }
           }
         }
-      ]
+      ],
+      "diplomacy": {
+        "allies": [],
+        "enemies": []
+      }
     }
+  ],
+  "blocked_name": [
+    "blocked_name_example"
   ]
 }

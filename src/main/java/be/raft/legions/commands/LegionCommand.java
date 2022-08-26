@@ -2,12 +2,9 @@ package be.raft.legions.commands;
 
 import be.raft.legions.Legions;
 import be.raft.legions.utils.LegionUtils;
-import be.raft.legions.utils.PersistentDataKeys;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Banner;
-import org.bukkit.block.banner.Pattern;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class LegionCommand implements CommandExecutor {
 
@@ -39,7 +37,13 @@ public class LegionCommand implements CommandExecutor {
             }
 
             if (args[0].equals("create")) {
+                if (args[1] == null) {
+                    player.sendMessage(ChatColor.RED + "Please give a legion name!");
+                    player.sendMessage(ChatColor.GOLD + "Usage : " + ChatColor.YELLOW + "/legion create <legion name>");
+                    return true;
+                }
                 create(player, args[1]);
+                return true;
             }
 
             sender.sendMessage(ChatColor.GREEN + "Type '/legion help' for help");
@@ -68,53 +72,25 @@ public class LegionCommand implements CommandExecutor {
     }
 
     private void menu(Player player) {
-        //Create inventory menu
-        Inventory mainMenu = Bukkit.createInventory(player, 27, "Legion Menu");
 
-        //Legion Setting item
-        ItemStack settings = new ItemStack(Material.REDSTONE);
-        ItemMeta settingsMeta = settings.getItemMeta();
-        settingsMeta.setDisplayName(ChatColor.RED + "Legion Settings");
-        ArrayList<String> settingsTooltip = new ArrayList<>();
-        settingsTooltip.add(ChatColor.GRAY + "Click to modify settings");
-        settingsMeta.setLore(settingsTooltip);
-        settings.setItemMeta(settingsMeta);
-        mainMenu.setItem(0, settings);
-
-        //Legion rank item
-        ItemStack ranks = new ItemStack(Material.NETHER_STAR);
-        ItemMeta ranksMeta = ranks.getItemMeta();
-        ranksMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Ranks");
-        ArrayList<String> ranksTooltip = new ArrayList<>();
-        ranksTooltip.add(ChatColor.GRAY + "Click to modify ranks");
-        ranksMeta.setLore(ranksTooltip);
-        ranks.setItemMeta(ranksMeta);
-        mainMenu.setItem(18, ranks);
-
-        //Legion info
-        ItemStack legionInfo = new ItemStack(Material.RED_BANNER);
-        ItemMeta legionInfoMeta = legionInfo.getItemMeta();
-        legionInfoMeta.setDisplayName(ChatColor.GREEN + "legion.name");
-        ArrayList<String> legionInfoTooltip = new ArrayList<>();
-        legionInfoTooltip.add(ChatColor.GRAY + "Click to modify legion option");
-        legionInfoMeta.setLore(legionInfoTooltip);
-        legionInfo.setItemMeta(legionInfoMeta);
-        mainMenu.setItem(13, legionInfo);
-
-        player.openInventory(mainMenu);
+        if (!LegionUtils.hasLegion(player)) {
+            player.sendMessage(ChatColor.RED + "You don't have a legion! Create new legion or join a legion");
+            return;
+        }
 
     }
 
     public void create(Player player, String name) {
-        //Check if user has give a name
-        if (name == null) {
-            player.sendMessage(ChatColor.RED + "Please give a legion name!");
-            return;
-        }
 
         //Check if player has a legion
         if (LegionUtils.hasLegion(player)) {
             player.sendMessage(ChatColor.RED + "You already are in a legion!");
+            return;
+        }
+
+        //Check if name hasn't special chars
+        if (Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE).matcher(name).find()) {
+            player.sendMessage(ChatColor.RED + "You can not use special chars!");
             return;
         }
 
@@ -125,5 +101,8 @@ public class LegionCommand implements CommandExecutor {
         }
 
         //Create Legion
+        Legions.legions.getLegions().add(LegionUtils.createLegion(name, player));
+
+        player.sendMessage(ChatColor.GREEN + "Successfully create " + name);
     }
 }
