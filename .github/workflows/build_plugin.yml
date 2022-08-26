@@ -21,8 +21,6 @@ jobs:
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
         run: ./gradlew build
-        with:
-          arguments: build
       - uses: actions/upload-artifact@v3
         name: Uploading Artifacts
         with:
